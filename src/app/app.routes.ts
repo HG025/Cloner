@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { homeRoute } from './component/home/home.routes';
+import { mainRoutes } from './component/main/main.routes';
 
 export const routes: Routes = [
     // {
@@ -9,7 +10,7 @@ export const routes: Routes = [
     // },
     {
         path: "",
-        redirectTo: "home",
+        redirectTo: "main",
         pathMatch: "full"
     },
     {
@@ -17,7 +18,14 @@ export const routes: Routes = [
         loadChildren: () => import('./component/auth/auth.routes').then(m=> m.auth)
     },
     {
-        path: '',
+        path: 'home',
         children: homeRoute
-    }
+    },
+     {
+        path: '',
+        children: mainRoutes
+    },
+
+    
+    
 ];
